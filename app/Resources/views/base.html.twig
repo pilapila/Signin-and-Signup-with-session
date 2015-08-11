@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets filter='cssrewrite'
+              '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap.css'
+              '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap-theme.css'
+              '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+           %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="container">
+            {% block body %}{% endblock %}            
+        </div>
+        {% block javascripts %}
+            {% javascripts
+                '%kernel.root_dir%/../vendor/components/jquery/jquery.js'
+                '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.js'
+                '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/parsley.js'
+                '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+                '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/jquery-latest.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>

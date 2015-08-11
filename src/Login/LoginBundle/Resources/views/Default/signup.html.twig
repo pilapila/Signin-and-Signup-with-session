@@ -1,0 +1,70 @@
+{#{% extends '::base.html.twig' %}#}
+ {% extends 'LoginLoginBundle:Default:index.html.twig' %} 
+
+{% block title %}Sign in{% endblock %}
+
+{% block container %}
+  
+  <form class="well"  method="POST" action="{{path('login_login_signup')}}" data-validate="parsley">
+  <div class="control-group">
+      <h2>Sign Up</h2>
+      <label>User Name</label>
+    <input type="email" class="input-xlarge" name="username" placeholder="Email"  data-trigger="change" data-parsley-required="true" data-parsley-type="email">
+      <label>First Name</label>
+    <input type="text" class="input-xlarge" name="firstname" placeholder="First Name" data-trigger="change" data-parsley-required="true">
+      <label>Password</label>
+    <input type="password" id="password" class="input-xlarge" name="password" placeholder="Password" data-trigger="change" data-parsley-required="true">
+      <label>Repeat Password</label>
+    <input type="password" id="passwordRe" class="input-xlarge" name="passwordRe" placeholder="Repeat Password" data-trigger="change" data-parsley-required="true" data-equalto="#password">
+    <button type="submit" class="btn btn-primary btn-sm">Create Account</button>
+  </div>
+  </form>
+  
+  
+        <style type="text/css">
+            body
+            {
+                background-color: #f9f9f9;
+            }
+            
+            input.parsley-success
+            {
+              color: #468847 !important;
+              background-color: #DFF0D8 !important;
+              border: 1px solid #D6E9C6 !important;
+            }
+            input.parsley-error
+            {
+              color: #B94A48 !important;
+              background-color: #F2DEDE !important;
+              border: 1px solid #EED3D7 !important;
+            }
+            
+            input
+            {
+                width: 150px;
+                margin: 0 2px !important;
+            }
+            
+            ul.parsley-error-list
+            {
+                font-size: 11px;
+                margin: 2px;
+                list-style-type:none; 
+            }
+            
+            ul.parsley-error-list li
+            {
+                line-height: 11px;
+            }
+            
+            /* just pushing the button over to the middle */
+            button[type=submit]
+            {
+                margin: 15px 0px 0px 160px;
+            }
+        </style>
+   
+{% endblock %}
+
+

@@ -1,0 +1,81 @@
+{#{% extends '::base.html.twig' %}#}
+ {% extends 'LoginLoginBundle:Default:index.html.twig' %} 
+
+{% block title %}Sign in{% endblock %}
+
+{% block container %}
+    <style type="text/css">
+        body
+        {
+            background-color: #f9f9f9;
+        }
+
+        input.parsley-success
+        {
+            color: #468847 !important;
+            background-color: #DFF0D8 !important;
+            border: 1px solid #D6E9C6 !important;
+        }
+        input.parsley-error
+        {
+            color: #B94A48 !important;
+            background-color: #F2DEDE !important;
+            border: 1px solid #EED3D7 !important;
+        }
+
+        input
+        {
+            height: 30px;
+            width: 200px;
+            margin: 0 2px !important;
+        }
+
+        ul.parsley-error-list
+        {
+            font-size: 11px;
+            margin: 2px;
+            list-style-type:none; 
+        }
+
+        ul.parsley-error-list li
+        {
+            line-height: 11px;
+        }
+
+        /* just pushing the button over to the middle */
+        button[type=submit]
+        {
+            margin: 10px 0px 0px 100px;
+        }
+    </style>
+
+
+    <form action="{{path('login_login_homepage')}}" method="post" class="well" data-validate="parsley">
+           <h2 class="form-signin-heading">Please Sign in</h2>
+        <div class="control-group">
+            <label class="control-label" for="email">Email:</label>
+            <div class="controls">
+                <input type="text" name="username" data-type="email" data-required="true" data-trigger="change" placeholder="Email Address" />
+            </div>
+            <label class="control-label">Password:</label>
+            <div class="controls">
+                <input type="password" name="password">
+            </div>   
+            <label class="checkbox">
+                <input type="checkbox" name="remember" value="rememberme">Remember me
+            </label>
+            <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
+            <a href="{{path('login_login_signup')}}">Sign up</a>
+        </div>
+    </form>
+
+        
+        {% if name is defined %}
+            <div class="alert-info fade in">
+                <strong>{{name}}</strong>
+            </div>
+        {% endif %}
+            
+{% endblock %}
+
+

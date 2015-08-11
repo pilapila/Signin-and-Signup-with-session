@@ -1,0 +1,18 @@
+{#{% extends '::base.html.twig' %}#}
+ {% extends 'LoginLoginBundle:Default:index.html.twig' %} 
+
+{% block title %}Sign in{% endblock %}
+
+{% block container %}
+
+
+    <div class="container">
+                    <strong>Hello {{name}}</strong>
+    </div>
+
+            <a href="{{path('login_login_logout')}}">Logout</a>
+
+
+{% endblock %}
+
+
